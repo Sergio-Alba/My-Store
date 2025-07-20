@@ -1,14 +1,8 @@
-
-
-
-export { ProductCard } from './components/ProductCard';
-export { ProductList } from './components/ProductList';
-
-
-export { StoreLayout } from './layout/StoreLayout';
-
-
-export { CompleteListPage } from './pages/CompleteListPage';
-export { MensPage } from './pages/MensPage';
-export { NewProduct } from './pages/NewProduct';
-export { WomensPage } from './pages/WomensPage';
+export * from './components/ProductCard';
+export * from './components/ProductList';
+export * from './interfaces/product.type';
+export * from './layout/StoreLayout';
+export * from './pages/CompleteListPage';
+export * from './pages/MensPage';
+export * from './pages/NewProduct';
+export * from './pages/WomensPage';
