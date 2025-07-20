@@ -1,8 +1,7 @@
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from "@heroui/react";
 import { NavLink } from "react-router-dom";
 import styles from './NavBar.module.css'
-
 import { AcmeLogo } from "./AcmeLogo";
 
 
