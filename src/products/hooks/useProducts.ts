@@ -7,11 +7,11 @@ interface Options {
 
 export const useProducts = ({filterKey}:Options) => {
 
-  const product = useQuery({
+  const { data: product = [], isLoading, isError  } = useQuery({
     queryKey: ['products',{ filterKey }],
     queryFn: () => getProducts({ filterKey }),
     staleTime: 1000 * 60 * 5, // 5 minutes
   })
 
-  return { product }
+  return { product , isLoading, isError }
 }
