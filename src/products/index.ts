@@ -1,6 +1,7 @@
 export * from './api/productsApi';
 export * from './components/ProductCard';
 export * from './components/ProductList';
+export * from './hooks/usePrefetchProduct';
 export * from './hooks/useProduct';
 export * from './hooks/useProducts';
 export * from './interfaces/product.type';
@@ -10,5 +11,5 @@ export * from './pages/MensPage';
 export * from './pages/NewProduct';
 export * from './pages/WomensPage';
 export * from './pages/productById';
-export * from './services/getProduct.action';
+export * from './services/getProductById.action';
 export * from './services/getProducts.action';
