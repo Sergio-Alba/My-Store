@@ -3,17 +3,17 @@ import { ProductList, useProducts } from ".."
 
 export const CompleteListPage = () => {
 
-  const { product } = useProducts({})
+  const { product, isLoading } = useProducts({})
 
   return (
     <div className="flex-col">
       <h1 className="text-2xl font-bold">Todos los productos</h1>
 
       {
-        product.isLoading && <p>Cargando productos...</p>
+        isLoading && <p>Cargando productos...</p>
       }
 
-      <ProductList products={product.data} />
+      <ProductList products={product} />
 
     </div>
   )
