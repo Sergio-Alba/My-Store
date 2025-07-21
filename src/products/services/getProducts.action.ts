@@ -8,14 +8,15 @@ interface GetProductsOptions {
   filterKey?: string
 }
 
-export const getProducts = async ({ filterKey }:GetProductsOptions) => {
+export const getProducts = async ({ filterKey }:GetProductsOptions):Promise<Product[]> => {
 
-  // Simulate a delay to mimic real-world API call latency
-  // This is useful for testing loading states in your UI
-  await sleep(2) // Simulate a delay for demonstration purposes
+  //TODO Simulate a delay to mimic real-world API call latency
+  await sleep(2)
 
   const filterURL = filterKey ? `category=${filterKey}` : '';
 
   const { data } = await productsApi.get<Product[]>(`/products?${filterURL}`);
   return data;
 }
+
+
