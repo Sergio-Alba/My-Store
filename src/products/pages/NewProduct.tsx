@@ -5,12 +5,12 @@ export const NewProduct = () => {
   
 
   return (
-    <div className="w-full flex-col">
+    <div className="flex-col w-full">
       <h1 className="text-2xl font-bold">Nuevo producto</h1>
 
       <form className="w-full">
 
-        <div className="flex justify-around items-center">
+        <div className="flex items-center justify-around">
           
           <div className="flex-col w-[500px]">
 
@@ -18,7 +18,7 @@ export const NewProduct = () => {
             <Input className="mt-2" type="number" label="Precio del producto" />
             <Input className="mt-2" type="url" label="Url del producto" />
             <Textarea className="mt-2" label="Descripcion del producto" />
-            <select className="rounded-md p-3 mt-2 bg-gray-800 w-full">
+            <select className="w-full p-3 mt-2 bg-gray-800 rounded-md">
               <option value="men's clothing">Men's clothing</option>
               <option value="women's clothing">Women's clothing</option>
               <option value="jewelery">Jewelery</option>
@@ -29,7 +29,7 @@ export const NewProduct = () => {
             <Button className="mt-2" color="primary">Crear</Button>
           </div>
 
-          <div className="bg-white rounded-2xl p-10 flex items-center" style={{
+          <div className="flex items-center p-10 bg-white rounded-2xl" style={{
             width: '500px',
             height: '600px',
           }}>
