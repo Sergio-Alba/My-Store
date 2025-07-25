@@ -11,5 +11,6 @@ export * from './pages/MensPage';
 export * from './pages/NewProduct';
 export * from './pages/WomensPage';
 export * from './pages/productById';
+export * from './services/createProduct.action';
 export * from './services/getProductById.action';
 export * from './services/getProducts.action';

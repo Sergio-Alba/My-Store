@@ -1,7 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 // tailwind.config.js
-// eslint-disable-next-line
-import { heroui } from "@heroui/react"
+import { heroui } from "@heroui/react";
 
 export default {
   content: [
