@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { createProduct } from "../services/createProduct.action"
+import { createProduct } from ".."
+import { Product } from "..";
 
 export const useProductMutation = () => {
 
@@ -9,8 +10,14 @@ export const useProductMutation = () => {
       onSuccess:(data) => {
 
         //? Invalidate the products query to refetch the data
-        queryClient.invalidateQueries({
-          queryKey: ["products",{"filterKey": data.category}]
+        // queryClient.invalidateQueries({
+        //   queryKey: ["products",{"filterKey": data.category}]
+        // })
+
+        queryClient.setQueryData<Product[]>(
+          ["products",{"filterKey": data.category}],(oldProducts) => {
+          if (!oldProducts) return [data]
+          return [...oldProducts, data]
         })
       }
     })

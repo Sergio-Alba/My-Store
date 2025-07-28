@@ -1,5 +1,5 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from "@heroui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from './NavBar.module.css'
 import { AcmeLogo } from "./AcmeLogo";
 
@@ -11,6 +11,7 @@ const routes = [
 ]
 
 export const NavBar = () => {
+  const navigate = useNavigate();
 
   return (
     <Navbar>
@@ -38,11 +39,13 @@ export const NavBar = () => {
       <NavbarContent justify="end">
         
         <NavbarItem>
-          <NavLink to="/new">
-            <Button color="primary" variant="flat">
-              Nuevo producto
-            </Button>
-          </NavLink>
+          <Button 
+            color="primary" 
+            variant="flat"
+            onPress={() => navigate('/new')}
+          >
+            Nuevo producto
+          </Button>
         </NavbarItem>
       </NavbarContent>
     </Navbar>
