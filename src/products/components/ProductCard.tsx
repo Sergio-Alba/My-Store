@@ -27,7 +27,12 @@ export const ProductCard = ({product, fullDescription = false, prefetchProduct}:
           </div>
           <h3 className="font-black text-gray-800 md:text-2xl text-xl">{product.title}</h3>
 
-          <p className="md:text-lg text-gray-500 text-base">{fullDescription ? product.description : product.description.slice(0,50)}...</p>
+          <p className="md:text-lg text-gray-500 text-base">
+            {fullDescription 
+              ? product.description 
+              : product.description?.slice(0,50) || 'Sin descripción'
+            }...
+          </p>
 
           <p className="text-xl font-black text-gray-800">
             ${product.price}
