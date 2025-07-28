@@ -11,7 +11,7 @@ interface GetProductsOptions {
 export const getProducts = async ({ filterKey }:GetProductsOptions):Promise<Product[]> => {
 
   //TODO Simulate a delay to mimic real-world API call latency
-  await sleep(2)
+  // await sleep(2)
 
   const filterURL = filterKey ? `category=${filterKey}` : '';
 

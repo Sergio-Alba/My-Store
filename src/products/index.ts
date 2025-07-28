@@ -3,6 +3,7 @@ export * from './components/ProductCard';
 export * from './components/ProductList';
 export * from './hooks/usePrefetchProduct';
 export * from './hooks/useProduct';
+export * from './hooks/useProductMutation';
 export * from './hooks/useProducts';
 export * from './interfaces/product.type';
 export * from './layout/StoreLayout';
