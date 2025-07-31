@@ -1,4 +1,4 @@
-export const sleep = (ms: number = 0): Promise<boolean> => {
+export const sleep = (ms: number): Promise<boolean> => {
   return new Promise((resolve) => 
     setTimeout(() => {
       resolve(true)

@@ -17,6 +17,7 @@ export const useProductMutation = () => {
           id: Math.random(),
           ...product
         }
+        console.log({optimisticProduct})
         // Administrar el producto en el cache del query client
         queryClient.setQueryData<Product[]>(
           ["products", {filterKey: product.category} ],
@@ -29,20 +30,44 @@ export const useProductMutation = () => {
         return { optimisticProduct }
       },
 
-
-
-
-      onSuccess:(data) => {
+      onSuccess:(data, _variables, context) => {
 
         //? Invalidate the products query to refetch the data
         // queryClient.invalidateQueries({
         //   queryKey: ["products",{"filterKey": data.category}]
         // })
+
+        // console.log(data, variables, context)
         
+        queryClient.removeQueries({
+          queryKey: ["product", context?.optimisticProduct.id ]
+        })
+
         queryClient.setQueryData<Product[]>(
-          ["products",{"filterKey": data.category}],(oldProducts) => {
+          ["products",{filterKey: data.category}],(oldProducts) => {
           if (!oldProducts) return [data]
-          return [...oldProducts, data]
+          
+          return oldProducts.map(cacheProduct => {
+            return cacheProduct.id === context.optimisticProduct.id ? data : cacheProduct
+          })
+
+        })
+      },
+
+      onError: (error, _variables, context) => {
+        console.log(error, _variables, context)
+
+        queryClient.removeQueries({
+          queryKey: ["product", context?.optimisticProduct.id ]
+        })
+        queryClient.setQueryData<Product[]>(
+          ["products",{filterKey: _variables.category}],(oldProducts) => {
+          if (!oldProducts) return []
+
+          return oldProducts.filter(product => {
+            return product.id !== context?.optimisticProduct.id
+            }
+          )
         })
       }
     })
